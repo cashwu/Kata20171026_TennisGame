@@ -71,21 +71,22 @@ namespace Kata20171026_TennisGame
             _player2 = player2;
         }
 
+        private readonly Dictionary<int, string> _lookup = new Dictionary<int, string>
+        {
+            {1, "Fifteen"},
+            {2, "Thirty"},
+            {3, "Forty"}
+        };
+
         public string Score()
         {
-            var lookup = new Dictionary<int, string>
-            {
-                {1, "Fifteen"},
-                {2, "Thirty"},
-                {3, "Forty"}
-            };
             if (_firstPlayerScore > 0)
             {
-                return lookup[_firstPlayerScore] + " Love";
+                return _lookup[_firstPlayerScore] + " Love";
             }
             if (_secondPlayerScore > 0)
             {
-                return "Love " + lookup[_secondPlayerScore];
+                return "Love " + _lookup[_secondPlayerScore];
             }
             return "Love All";
         }
