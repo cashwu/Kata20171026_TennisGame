@@ -20,6 +20,14 @@ namespace Kata20171026_TennisGame
             ScoreShouldBe("Fifteen Love");
         }
 
+        [TestMethod]
+        public void Thirty_Love()
+        {
+            _tennisGame.FirstPlayerScore();
+            _tennisGame.FirstPlayerScore();
+            ScoreShouldBe("Thirty Love");
+        }
+
         private void ScoreShouldBe(string expected)
         {
             var result = _tennisGame.Score();
@@ -45,6 +53,10 @@ namespace Kata20171026_TennisGame
             if (_firstPlayerScore == 1)
             {
                 return "Fifteen Love";
+            }
+            else if (_firstPlayerScore == 2)
+            {
+                return "Thirty Love";
             }
             return "Love All";
         }
