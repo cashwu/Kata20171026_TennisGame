@@ -137,23 +137,43 @@ namespace Kata20171026_TennisGame
 
         public string Score()
         {
-            if (_firstPlayerScore != _secondPlayerScore)
+            if (IsScoreDiff())
             {
                 if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
                 {
-                    if (Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1)
+                    if (IsAdv())
                     {
-                        var advPlayer = _firstPlayerScore > _secondPlayerScore ? _player1 : _player2;
-                        return advPlayer + " Adv";
+                        return AdvPlayer() + " Adv";
                     }
                 }
                 return _lookup[_firstPlayerScore] + " " + _lookup[_secondPlayerScore];
             }
-            if (_firstPlayerScore >= 3)
+            if (IsDeuce())
             {
                 return "Deuce";
             }
             return _lookup[_firstPlayerScore] + " All";
+        }
+
+        private bool IsDeuce()
+        {
+            return _firstPlayerScore >= 3;
+        }
+
+        private bool IsScoreDiff()
+        {
+            return _firstPlayerScore != _secondPlayerScore;
+        }
+
+        private bool IsAdv()
+        {
+            return Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1;
+        }
+
+        private string AdvPlayer()
+        {
+            var advPlayer = _firstPlayerScore > _secondPlayerScore ? _player1 : _player2;
+            return advPlayer;
         }
 
         public void FirstPlayerScore()
