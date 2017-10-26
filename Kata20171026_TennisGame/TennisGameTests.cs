@@ -73,6 +73,7 @@ namespace Kata20171026_TennisGame
 
         private readonly Dictionary<int, string> _lookup = new Dictionary<int, string>
         {
+            {0, "Love"},
             {1, "Fifteen"},
             {2, "Thirty"},
             {3, "Forty"}
@@ -80,13 +81,9 @@ namespace Kata20171026_TennisGame
 
         public string Score()
         {
-            if (_firstPlayerScore > 0)
+            if (_firstPlayerScore != _secondPlayerScore)
             {
-                return _lookup[_firstPlayerScore] + " Love";
-            }
-            if (_secondPlayerScore > 0)
-            {
-                return "Love " + _lookup[_secondPlayerScore];
+                return _lookup[_firstPlayerScore] + " " + _lookup[_secondPlayerScore];
             }
             return "Love All";
         }
