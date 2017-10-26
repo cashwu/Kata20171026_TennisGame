@@ -28,6 +28,13 @@ namespace Kata20171026_TennisGame
             ScoreShouldBe("Thirty Love");
         }
 
+        [TestMethod]
+        public void Forty_Love()
+        {
+            FirstPlayerScoreTime(3);
+            ScoreShouldBe("Forty Love");
+        }
+
         private void FirstPlayerScoreTime(int times)
         {
             for (int j = 0; j < times; j++)
@@ -61,7 +68,8 @@ namespace Kata20171026_TennisGame
             var lookup = new Dictionary<int, string>
             {
                 {1, "Fifteen"},
-                {2, "Thirty"}
+                {2, "Thirty"},
+                {3, "Forty"}
             };
             if (_firstPlayerScore > 0)
             {
