@@ -24,9 +24,16 @@ namespace Kata20171026_TennisGame
         [TestMethod]
         public void Thirty_Love()
         {
-            _tennisGame.FirstPlayerScore();
-            _tennisGame.FirstPlayerScore();
+            FirstPlayerScoreTime(2);
             ScoreShouldBe("Thirty Love");
+        }
+
+        private void FirstPlayerScoreTime(int times)
+        {
+            for (int j = 0; j < times; j++)
+            {
+                _tennisGame.FirstPlayerScore();
+            }
         }
 
         private void ScoreShouldBe(string expected)
