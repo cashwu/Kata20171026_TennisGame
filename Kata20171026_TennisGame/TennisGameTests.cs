@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace Kata20171026_TennisGame
 {
@@ -50,13 +51,14 @@ namespace Kata20171026_TennisGame
 
         public string Score()
         {
-            if (_firstPlayerScore == 1)
+            var lookup = new Dictionary<int, string>
             {
-                return "Fifteen Love";
-            }
-            else if (_firstPlayerScore == 2)
+                {1, "Fifteen"},
+                {2, "Thirty"}
+            };
+            if (_firstPlayerScore > 0)
             {
-                return "Thirty Love";
+                return lookup[_firstPlayerScore] + " Love";
             }
             return "Love All";
         }
