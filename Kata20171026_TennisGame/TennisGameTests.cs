@@ -42,6 +42,21 @@ namespace Kata20171026_TennisGame
             ScoreShouldBe("Love Fifteen");
         }
 
+        [TestMethod]
+        public void Love_Thirty()
+        {
+            SecondPlayerScoreTime(2);
+            ScoreShouldBe("Love Thirty");
+        }
+
+        private void SecondPlayerScoreTime(int times)
+        {
+            for (int j = 0; j < times; j++)
+            {
+                _tennisGame.SecondPlayerScore();
+            }
+        }
+
         private void FirstPlayerScoreTime(int times)
         {
             for (int j = 0; j < times; j++)
