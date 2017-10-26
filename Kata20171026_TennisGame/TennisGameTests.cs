@@ -57,6 +57,22 @@ namespace Kata20171026_TennisGame
             ScoreShouldBe("Fifteen All");
         }
 
+        [TestMethod]
+        public void Deuce()
+        {
+            FirstPlayerScoreTime(3);
+            SecondPlayerScoreTime(3);
+            ScoreShouldBe("Deuce");
+        }
+
+        [TestMethod]
+        public void Deuce_when_4()
+        {
+            FirstPlayerScoreTime(4);
+            SecondPlayerScoreTime(4);
+            ScoreShouldBe("Deuce");
+        }
+
         private void SecondPlayerScoreTime(int times)
         {
             for (int j = 0; j < times; j++)
@@ -107,6 +123,10 @@ namespace Kata20171026_TennisGame
             if (_firstPlayerScore != _secondPlayerScore)
             {
                 return _lookup[_firstPlayerScore] + " " + _lookup[_secondPlayerScore];
+            }
+            if (_firstPlayerScore >= 3)
+            {
+                return "Deuce";
             }
             return _lookup[_firstPlayerScore] + " All";
         }
