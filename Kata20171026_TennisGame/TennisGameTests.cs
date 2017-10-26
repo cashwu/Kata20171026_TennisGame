@@ -90,6 +90,14 @@ namespace Kata20171026_TennisGame
             ScoreShouldBe("player2 Adv");
         }
 
+        [TestMethod]
+        public void FirstPlayer_Win()
+        {
+            FirstPlayerScoreTime(5);
+            SecondPlayerScoreTime(3);
+            ScoreShouldBe("player1 Win");
+        }
+
         private void SecondPlayerScoreTime(int times)
         {
             for (int j = 0; j < times; j++)
@@ -145,6 +153,8 @@ namespace Kata20171026_TennisGame
                     {
                         return AdvPlayer() + " Adv";
                     }
+
+                    return AdvPlayer() + " Win";
                 }
                 return _lookup[_firstPlayerScore] + " " + _lookup[_secondPlayerScore];
             }
