@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 
 namespace Kata20171026_TennisGame
@@ -138,13 +139,13 @@ namespace Kata20171026_TennisGame
         {
             if (_firstPlayerScore != _secondPlayerScore)
             {
-                if (_firstPlayerScore > 3)
+                if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
                 {
-                    return _player1 + " Adv";
-                }
-                if (_secondPlayerScore > 3)
-                {
-                    return _player2 + " Adv";
+                    if (Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1)
+                    {
+                        var advPlayer = _firstPlayerScore > _secondPlayerScore ? _player1 : _player2;
+                        return advPlayer + " Adv";
+                    }
                 }
                 return _lookup[_firstPlayerScore] + " " + _lookup[_secondPlayerScore];
             }
