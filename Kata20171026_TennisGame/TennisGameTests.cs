@@ -35,6 +35,13 @@ namespace Kata20171026_TennisGame
             ScoreShouldBe("Forty Love");
         }
 
+        [TestMethod]
+        public void Love_Fifteen()
+        {
+            _tennisGame.SecondPlayerScore();
+            ScoreShouldBe("Love Fifteen");
+        }
+
         private void FirstPlayerScoreTime(int times)
         {
             for (int j = 0; j < times; j++)
@@ -56,6 +63,7 @@ namespace Kata20171026_TennisGame
         private readonly string _player2;
 
         private int _firstPlayerScore;
+        private int _secondPlayerScore;
 
         public TennisGame(string player1, string player2)
         {
@@ -75,12 +83,21 @@ namespace Kata20171026_TennisGame
             {
                 return lookup[_firstPlayerScore] + " Love";
             }
+            if (_secondPlayerScore > 0)
+            {
+                return "Love " + lookup[_secondPlayerScore];
+            }
             return "Love All";
         }
 
         public void FirstPlayerScore()
         {
             _firstPlayerScore++;
+        }
+
+        public void SecondPlayerScore()
+        {
+            _secondPlayerScore++;
         }
     }
 }
