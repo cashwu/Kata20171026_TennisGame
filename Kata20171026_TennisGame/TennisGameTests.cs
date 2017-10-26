@@ -49,6 +49,14 @@ namespace Kata20171026_TennisGame
             ScoreShouldBe("Love Thirty");
         }
 
+        [TestMethod]
+        public void Fifteen_All()
+        {
+            FirstPlayerScoreTime(1);
+            SecondPlayerScoreTime(1);
+            ScoreShouldBe("Fifteen All");
+        }
+
         private void SecondPlayerScoreTime(int times)
         {
             for (int j = 0; j < times; j++)
@@ -100,7 +108,7 @@ namespace Kata20171026_TennisGame
             {
                 return _lookup[_firstPlayerScore] + " " + _lookup[_secondPlayerScore];
             }
-            return "Love All";
+            return _lookup[_firstPlayerScore] + " All";
         }
 
         public void FirstPlayerScore()
